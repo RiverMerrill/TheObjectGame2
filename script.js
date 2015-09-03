@@ -26,7 +26,7 @@ var ItemsConstructor = function(name, modifier, description){
 var items = {
     helmet: new ItemsConstructor("Helmet", 0.1, "This will protect your face!"),
     shield: new ItemsConstructor("Shield", 0.3,"This is an awesome shield!"),
-    armor: new ItemsConstructor("Armor", 0.7, "This armor rocks!!!")
+    armor: new ItemsConstructor("Armor", 0.6, "This armor rocks!!!")
 };
 
 var player = {
@@ -45,7 +45,7 @@ var player = {
     this.hit(10);
   },
   hit: function(damage) {
-    this.health -= damage;
+    this.health -= (damage - (damage * this.addMods()));
     this.hits++;
     if (this.health <= 0) {
       this.health = 0;
