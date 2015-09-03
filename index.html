@@ -33,17 +33,15 @@
           <button class="btn btn-default" onClick="player.slap()">Slap</button>
           <button class="btn btn-info" onClick="player.punch()">Punch</button>
           <button class="btn btn-warning" onClick="player.kick()">Kick</button>
-        
-
-            <select class="form-control"  id="item-select" style="display:inline-block; width:auto; margin-left:20px">
-            <option value="shield">Shield</option>
+          <select class="form-control"  id="item-select" style="display:inline-block; width:auto; margin-left:20px">
             <option value="helmet">Helmet</option>
+            <option value="shield">Shield</option>
             <option value="armor">Armor</option>
-            </select>
+          </select>
             <button class="btn btn-primary" onClick="giveItem()">Give Item</button>
-       
-          </span>
-        <button class="btn btn-danger pull-right" onClick="player.reset()">Reset</button>
+            <button class="btn btn-danger" onClick="reset()" style="margin-left:40px">Reset Game</button>
+        </span>
+        <button class="btn btn-success pull-right" onClick="setGame()">New Player</button>
       </div>
     </div>
   </div>

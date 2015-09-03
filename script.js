@@ -8,7 +8,6 @@
 //Constants
 var startingHealth = 100;
 var startingHits = 0;
-var playerName = prompt("Enter your name.", "Type your name here.");
 
 //Item Constructor HERE
 var ItemsConstructor = function (name, modifier, description) {
@@ -31,7 +30,7 @@ var items = {
 var player = {
     
     //player variables
-    name: playerName,
+    name: "",
     health: startingHealth,
     hits: startingHits,
     items: [],
@@ -61,23 +60,16 @@ var player = {
         }
         return modTotal;
     },
-    reset: function () {
-        this.health = startingHealth,
-        this.hits = startingHits,
-        this.items = [];
-        children[0].disabled = false;
-        children[1].disabled = false;
-        children[2].disabled = false;
-        this.items = [];
-        update();
-    },
 }
 
+//Initializes game
 function setGame() {
+    player.name = prompt("Enter your name.", "Type your name here.");
     document.getElementById("name").innerText = player.name;
-    update();
+    reset();
 }
 
+//Updates status
 function update() {
     document.getElementById("health").innerText = player.health;
     document.getElementById("hits").innerText = player.hits;
@@ -88,6 +80,17 @@ function update() {
         document.getElementById("player-panel").classList.remove("panel-danger")
     }
     drawItems()
+}
+
+//Resets game for current player
+function reset() {
+    player.health = startingHealth,
+    player.hits = startingHits,
+    player.items = [];
+    children[0].disabled = false;
+    children[1].disabled = false;
+    children[2].disabled = false;
+    update();
 }
 
 function drawItems() {
