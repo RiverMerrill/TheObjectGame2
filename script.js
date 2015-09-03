@@ -11,7 +11,14 @@ var startingHits= 0;
 var playerName= "PlayerName";
 
 // Item Constructor HERE
-
+var ItemsConstructor = function(name, modifier, description){
+    this.name = name;
+    this.modifier = modifier;
+    this.description = description;
+    this.draw = function(){
+     //...
+    }
+}
 
 
 
