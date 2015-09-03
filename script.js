@@ -26,21 +26,18 @@ var ItemsConstructor = function(name, modifier, description){
 
 //global items placeholder HERE
 var items = {
-    helmet: new ItemsConstructor("Helmet", 0.1, "This will protect your face!"),
+    helmet: new ItemsConstructor("Helmet", 0.2, "This will protect your face!"),
     shield: new ItemsConstructor("Shield", 0.3,"This is an awesome shield!"),
-    armor: new ItemsConstructor("Armor", 0.6, "This armor rocks!!!")
+    armor: new ItemsConstructor("Armor", 0.4, "This armor rocks!!!")
+    
 };
 
 var player = {
   name: "PlayerName",
   health: startingHealth,
   hits: startingHits,
-  items: [
-      items.shield,
-      items.armor,
-      items.helmet
-  ],
-
+  items: [],
+  
   slap: function() {
     this.hit(1);
   },
@@ -88,7 +85,7 @@ function update() {
   
 }
 
-function drawItems() {
+  function drawItems() {
     var testItems = "";
     for(var i = 0; i < player.items.length; i++) {
         testItems += player.items[i].draw();
@@ -97,6 +94,25 @@ function drawItems() {
     document.getElementById("player-items").innerHTML = testItems
     
 
+}
+  var itemSelect = document.getElementById('item-select');
+  function giveItem() {
+     var children = itemSelect.options;
+     if(children[0].selected == true) {
+       player.items.push(items.shield);
+       children[0].disabled = true;
+     }
+     if(children[1].selected == true) {
+       player.items.push(items.helmet);
+       children[1].disabled = true;
+     }
+     if(children[2].selected == true) {
+       player.items.push(items.armor);
+       children[2].disabled = true;
+     }
+     
+     update();
+     return;
 }
 
 
