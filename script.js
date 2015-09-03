@@ -62,6 +62,7 @@ var player = {
     children[0].disabled = false;
     children[1].disabled = false;
     children[2].disabled = false;
+    this.items = [];
     update();
   },
   addMods: function () {
