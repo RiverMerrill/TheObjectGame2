@@ -57,6 +57,14 @@ var player = {
       this.hits = startingHits,
     update();
   },
+  addMods: function() {
+    var modTotal = 0
+    for(var i = 0; i < this.items.length; i++) {
+      modTotal += this.items[i].modifier;
+    }
+    return modTotal;
+  }
+  
 }
 
 function update() {
