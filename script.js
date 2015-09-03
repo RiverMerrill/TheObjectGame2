@@ -33,7 +33,8 @@ var player = {
   name: "PlayerName",
   health: startingHealth,
   hits: startingHits,
-  
+  items: [items.shield],
+
   slap: function() {
     this.hit(1);
   },
