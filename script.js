@@ -15,7 +15,9 @@ var ItemsConstructor = function(name, modifier, description){
     this.name = name;
     this.modifier = modifier;
     this.description = description;
-    this.draw = function(){
+    this.draw = function () {
+
+        return '<div class="item">' + this.name + '</div>';
      //...
     }
 }
@@ -33,7 +35,11 @@ var player = {
   name: "PlayerName",
   health: startingHealth,
   hits: startingHits,
-  items: [items.shield],
+  items: [
+      items.shield,
+      items.armor,
+      items.helmet
+  ],
 
   slap: function() {
     this.hit(1);
@@ -76,9 +82,22 @@ function update() {
   } else {
       document.getElementById("player-panel").classList.remove("panel-danger")
   }
+       
   //IF HEALTH STATEMENT
-
+ drawItems()
   
 }
+
+function drawItems() {
+    var testItems = "";
+    for(var i = 0; i < player.items.length; i++) {
+        testItems += player.items[i].draw();
+    }
+    
+    document.getElementById("player-items").innerHTML = testItems
+    
+
+}
+
 
 update();
