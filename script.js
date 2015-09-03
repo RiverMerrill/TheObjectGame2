@@ -24,7 +24,9 @@ var ItemsConstructor = function(name, modifier, description){
 
 //global items placeholder HERE
 var items = {
-  
+    helmet: new ItemsConstructor("Helmet", 0.1, "This will protect your face!"),
+    shield: new ItemsConstructor("Shield", 0.3,"This is an awesome shield!"),
+    armor: new ItemsConstructor("Armor", 0.7, "This armor rocks!!!")
 };
 
 var player = {
