@@ -15,7 +15,8 @@ var ItemsConstructor = function (name, modifier, description) {
     this.modifier = modifier;
     this.description = description;
     this.draw = function () {
-        return '<div class="item">' + this.name + '</div>';
+        return '<span class="col-md-4">' + '<h3 class="item">' + this.name + 
+               '</h3>' + '<span>' + this.description + '</span>' + '</span>';
     };
 }
 
@@ -105,15 +106,15 @@ var itemSelect = document.getElementById('item-select');
 var children = itemSelect.options;
 
 function giveItem() {
-    if (children[0].selected) {
-        player.items.push(items.shield);
+    if (children[0].selected && !children[0].disabled) {
+        player.items.push(items.helmet);
         children[0].disabled = true;
     }
-    if (children[1].selected) {
-        player.items.push(items.helmet);
+    if (children[1].selected && !children[1].disabled) {
+        player.items.push(items.shield);
         children[1].disabled = true;
     }
-    if (children[2].selected) {
+    if (children[2].selected && !children[2].disabled) {
         player.items.push(items.armor);
         children[2].disabled = true;
     }
